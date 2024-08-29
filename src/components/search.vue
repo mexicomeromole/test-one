@@ -28,28 +28,47 @@
   
   <script lang="ts">
   import { defineComponent, ref } from 'vue';
-  
-  export default defineComponent({
-    setup() {
-      const projects = ref([
-        { id: 1, nombre_proyecto: "Proyecto Alpha", descripcion_proyecto: "Implementación de nuevas tecnologías", fecha_creacion: "15/01/2024", capex: 50000, opex: 10000, pilar_proyecto: "Innovación", clasificacion_comite_inversion: "Alta prioridad" },
-        { id: 2, nombre_proyecto: "Proyecto Beta", descripcion_proyecto: "Expansión de mercado", fecha_creacion: "20/02/2024", capex: 30000, opex: 15000, pilar_proyecto: "Crecimiento", clasificacion_comite_inversion: "Media prioridad" },
-        { id: 20, nombre_proyecto: "Proyecto Zeta", descripcion_proyecto: "Optimización de recursos", fecha_creacion: "30/07/2024", capex: 45000, opex: 20000, pilar_proyecto: "Eficiencia", clasificacion_comite_inversion: "Baja prioridad" }
-      ]);
-  
-      const searchId = ref('');
-      const project = ref(null);
-  
-      const searchProject = () => {
-        const foundProject = projects.value.find(p => p.id === Number(searchId.value));
-        project.value = foundProject || null;
-      };
-  
-      return {
-        searchId,
-        project,
-        searchProject
-      };
+
+export default defineComponent({
+  setup() {
+    interface Project {
+      id: number;
+      nombre_proyecto: string;
+      descripcion_proyecto: string;
+      fecha_creacion: string;
+      capex: number;
+      opex: number;
+      pilar_proyecto: string;
+      clasificacion_comite_inversion: string;
     }
-  });
+
+    const projects = ref<Project[]>([
+      { id: 1, nombre_proyecto: "Proyecto Alpha", descripcion_proyecto: "Implementación de nuevas tecnologías", fecha_creacion: "15/01/2024", capex: 50000, opex: 10000, pilar_proyecto: "Innovación", clasificacion_comite_inversion: "Alta prioridad" },
+      { id: 2, nombre_proyecto: "Proyecto Beta", descripcion_proyecto: "Expansión de mercado", fecha_creacion: "20/02/2024", capex: 30000, opex: 15000, pilar_proyecto: "Crecimiento", clasificacion_comite_inversion: "Media prioridad" },
+      { id: 20, nombre_proyecto: "Proyecto Zeta", descripcion_proyecto: "Optimización de recursos", fecha_creacion: "30/07/2024", capex: 45000, opex: 20000, pilar_proyecto: "Eficiencia", clasificacion_comite_inversion: "Baja prioridad" }
+    ]);
+
+    const searchId = ref('');
+    const project = ref<Project | null>(null);
+
+    const searchProject = () => {
+      const foundProject = projects.value.find(p => p.id === Number(searchId.value));
+      project.value = foundProject || null;
+    };
+
+    return {
+      searchId,
+      project,
+      searchProject
+    };
+  }
+});
   </script>
+
+
+
+
+
+
+
+
