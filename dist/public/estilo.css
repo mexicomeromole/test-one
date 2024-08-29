@@ -1,0 +1,17 @@
+body{
+    margin: 0;
+  }
+  div.burguer{
+    width: 20px;
+    padding: 20px;
+    background-color: #fec702;
+  }
+  div.burguer img{
+    display: block;
+  }
+  div.home{
+    width: 30px;
+  }
+  div.home img{
+    display: block;
+  }
