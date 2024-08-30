@@ -53,7 +53,7 @@
               <input v-model="etapaActual.fechaFin" id="fechaFin" type="date" required>
             </div>
             <button type="submit">{{ modoEdicion ? 'Modificar' : 'Agregar' }}</button>
-            <button type="button" @click="cerrarModal">Cancelar</button>
+            <button class="cancelarB" type="button" @click="cerrarModal">Cancelar</button>
           </form>
         </div>
       </div>
